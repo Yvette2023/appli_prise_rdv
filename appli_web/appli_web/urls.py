@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from appli.views import AppointmentCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create/', AppointmentCreateView.as_view(), name='create_appointment'),
 ]

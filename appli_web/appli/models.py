@@ -9,7 +9,9 @@ class Coach(models.Model):
 
     def __str__(self):
         return self.name
-
+    
+    class Meta:
+        app_label = 'appli_web'
 
 class Client(models.Model):
     first_name = models.CharField(max_length=100)
@@ -20,6 +22,9 @@ class Client(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
+    class Meta:
+        app_label = 'appli_web'
+    
 class Appointment(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     coach = models.ForeignKey(Coach, on_delete=models.CASCADE)
@@ -27,7 +32,11 @@ class Appointment(models.Model):
     start_time = models.TimeField()
     duration = models.DurationField(default=30)
     session_object = models.TextField()
+    notes = models.TextField(blank=True)
 
     def __str__(self):
         return f"{self.client} with {self.coach} on {self.date} at {self.start_time}"
+    
+    class Meta:
+        app_label = 'appli_web'
 
