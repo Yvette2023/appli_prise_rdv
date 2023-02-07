@@ -8,6 +8,8 @@ from django.views.generic.edit import CreateView
 from .models import Appointment, Coach
 from django.views.generic import TemplateView
     
+@login_required
+
 def home(request):
 	context ={
 	'notes': Coach.objects.all()
