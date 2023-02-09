@@ -129,3 +129,5 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 
 LANGUAGE_CODE = 'fr-fr'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
