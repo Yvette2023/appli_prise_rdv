@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Historique des rendez-vous</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Date</th>
+                <th>Heure de début</th>
+                <th>Durée</th>
+                <th>Objet du rendez-vous</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.client }}</td>
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.start_time }}</td>
+                    <td>{{ appointment.duration }}</td>
+                    <td>{{ appointment.session_object }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

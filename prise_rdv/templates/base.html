@@ -17,16 +17,10 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Accueil<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'create_appointment' %}">Rendez-vous<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Atelier<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Tarifs<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">PRENDRE RENDEZ-VOUS<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'appointments_history' %}">Historique<span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -42,7 +36,7 @@
             <a class="nav-link" href="{% url 'login' %}">Connexion</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inscription</a>
+            <a class="nav-link" href="{% url 'register' %}">Inscription</a>
           </li>
           {% endif %}
         </ul>
@@ -51,6 +45,11 @@
 	<br>
     <main role="main" class="container">
       <div>
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif%}
         {% block content %}
         {% endblock %}
       </div>

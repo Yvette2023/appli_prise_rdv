@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from mon_appli.views import AppointmentCreateView, appointments_history
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('mon_appli.urls')),
+    path('booking/', AppointmentCreateView.as_view(), name='create_appointment'),
+    path('history/',appointments_history, name='appointments_history'),
     path('', include('usersapp.urls')),
 ]

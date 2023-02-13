@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mon_appli',
+    'prise_rdv',
     'usersapp',
 ]
 
@@ -131,3 +132,4 @@ LOGIN_REDIRECT_URL = 'home'
 LANGUAGE_CODE = 'fr-fr'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
