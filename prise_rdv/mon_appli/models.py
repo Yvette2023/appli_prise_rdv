@@ -27,3 +27,4 @@ class Appointment(models.Model):
     
     class Meta:
         app_label = 'mon_appli'
+        

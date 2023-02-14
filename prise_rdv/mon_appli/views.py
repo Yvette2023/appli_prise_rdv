@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -13,14 +13,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ValidationError
 from datetime import datetime
 from datetime import timedelta
+from django.views.generic import ListView
+from django.contrib.auth.forms import UserCreationForm
 
-@login_required
+
 def home(request):
-	context ={
-	'notes': Coach.objects.all()
-	}
-	return render(request, 'home.html',context)
- 
+    return render(request, 'home.html')
+
 class AppointmentCreateView(LoginRequiredMixin, CreateView):
     model = Appointment
     form_class = AppointmentForm
@@ -43,8 +42,12 @@ class AppointmentCreateView(LoginRequiredMixin, CreateView):
         appointment.save()
         print("Appointment created successfully")
         return super().form_valid(form)
-   
+    
+@login_required
 def appointments_history(request):
-    appointments = Appointment.objects.all()
+    user = request.user
+    appointments = Appointment.objects.filter(client=request.user)
     context = {'appointments': appointments}
     return render(request, 'appointments/appointments_history.html', context)
+    
+
