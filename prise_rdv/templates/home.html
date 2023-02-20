@@ -1,24 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Coach en développement personnel!{% endblock title %}
-{% block content %}
-{%if notes %}
-    {% for note in notes %}
-        <article class="media content-section">
-            <div class="media-body">                
-                <h2><a class="article-title" href="#">{{ note.title }}</a></h2>
-                <div class="article-metadata">
-                    <small class="article-author">{{ note.author }}, </small>
-                    <small class="article-date">{{ note.creation_date }}</small>
-                </div>
-                <p class="article-content">{{ note.content }}</p>
-            </div>
-        </article>
-    {% endfor %}
-{% else %}
-    <header>
-       <h3> Coach en développement personnel:</h3>
-       <p> Aujourd’hui, le terme de coaching est utilisé de différentes façons. Très en vogue depuis quelques années, le coaching de vie offre un accompagnement personnalisé et global aux individus souhaitant entreprendre des changements dans leur vie. Cette pratique permet à l’individu d’évoluer personnellement. Le coaching puise ses sources dans l’art de la relation et des interactions entre les personnes. En outre, le coaching permet d’accompagner une personne, une équipe, ou même une organisation.</p>
-    </header>
-{% endif %}
-{% endblock %}
 
+{% block title %}Accueil |Coach en développement personnel{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="home.css">
+  <section class="about">
+    <div class="container">
+      <h2> Comment se déroule un coaching avec moi :</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis deleniti rem temporibus at libero? Repellat rerum fugit itaque. Harum possimus ratione, odio aperiam accusantium dolorem totam eveniet officiis cum est reiciendis aut, dolores voluptate! Voluptates at voluptatum, similique cupiditate doloribus illum corrupti est fugit! Tenetur, libero ipsam perspiciatis assumenda molestias tempore autem sapiente sunt saepe, sint earum corporis mollitia praesentium? </p>
+    </div>
+  </section>
+  <footer>
+    <ul>
+        <li><img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2.svg"
+                alt="Logo"></li>
+        <li>+61 (0) 383 766 284</li>
+        <li>Monday - Friday: 09:00 AM - 06:00 PM <br>
+            Saturday: 07:00 AM - 08:00 PM</li>
+    </ul>
+</footer>
+
+{% endblock content %}
